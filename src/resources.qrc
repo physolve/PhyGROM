@@ -2,6 +2,7 @@
     <qresource prefix="/PhyGROM">
         <file>qml/main.qml</file>
         <file>qml/Grom.qml</file>
+        <file>qml/DataTool.qml</file>
         <file>qml/img/Vacuum_scheme_with_VAC.png</file>
     </qresource>
 </RCC>

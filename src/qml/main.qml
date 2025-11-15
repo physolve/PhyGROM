@@ -17,13 +17,20 @@ ApplicationWindow {
 
         Grom {
             id: grom
-            Layout.preferredWidth: 900
+            Layout.minimumWidth: 900
             Layout.fillHeight: true
         }
         Item {
-            Layout.fillWidth: true
+            Layout.preferredWidth: 50
+            // Layout.fillWidth: true
             Layout.fillHeight: true
         }
+        DataTool {
+            id: dataTool
+            Layout.preferredWidth: 600
+            Layout.fillHeight: true
+        }
+        
     }
 
     // Rectangle {

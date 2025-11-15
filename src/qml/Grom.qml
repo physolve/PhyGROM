@@ -32,8 +32,6 @@ Pane {
             x: 365-1
             y: 55-1
             color: "transparent"
-            border.color: "yellow"
-            border.width: 2
             width: 150
             height: 55
             radius: height/4
@@ -49,8 +47,6 @@ Pane {
             x: 97
             y: 358
             color: "transparent"
-            border.color: "yellow"
-            border.width: 2
             width: 150
             height: 55
             radius: height/4
