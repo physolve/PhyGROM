@@ -20,14 +20,10 @@ ApplicationWindow {
             Layout.minimumWidth: 900
             Layout.fillHeight: true
         }
-        Item {
-            Layout.preferredWidth: 50
-            // Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
         DataTool {
             id: dataTool
             Layout.preferredWidth: 600
+            Layout.leftMargin: 50
             Layout.fillHeight: true
         }
         

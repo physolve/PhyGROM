@@ -62,8 +62,6 @@ Pane {
             x: 513
             y: 562
             color: "transparent"
-            border.color: "yellow"
-            border.width: 2
             width: 192
             height: 56
             radius: height/4
