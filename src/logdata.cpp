@@ -25,6 +25,9 @@ LogData::LogData(QObject* parent) : QObject(parent)
     // connect(m_logTimer, &QTimer::timeout, this, &Log::programmLog);
 
     m_programmTime.start();
+
+    // создание файла
+    // запись запуск отдельно
 }
 
 LogData::~LogData(){

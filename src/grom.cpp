@@ -13,7 +13,7 @@ Grom::Grom(int &argc, char **argv) : QGuiApplication(argc, argv), analogControll
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Grom::timeEvent);
-    timer->setInterval(1000);
+    timer->setInterval(1000); // move to variable log time
     timer->start();
 }
 

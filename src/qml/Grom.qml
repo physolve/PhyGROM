@@ -4,19 +4,21 @@ import QtQuick.Layouts
 
 Pane {
     id: root
-    anchors.fill: parent
+    // anchors.fill: parent
+    height: 1000
+    width: 1600
     anchors.margins: 100
     anchors.leftMargin: 200
     anchors.rightMargin: 200
     // padding: 100 
     // horizontalPadding: 400
-    
+    implicitHeight: 900
     // here will be picture of Grom
     // source: Vacuum_scheme_with_VAC.png
     background: Item {
 
         Image {
-            height: parent.height
+            height: 900
             fillMode: Image.PreserveAspectFit
             source: "qrc:/PhyGROM/qml/img/Vacuum_scheme_with_VAC.png"
         }
@@ -27,13 +29,56 @@ Pane {
         anchors.fill: parent
 
         Rectangle {
-            x: 250
-            y: 20
-            border.color: "black"
+            x: 365-1
+            y: 55-1
+            color: "transparent"
+            border.color: "yellow"
             border.width: 2
-            width: 100
-            height: 30
+            width: 150
+            height: 55
+            radius: height/4
+
+            Text {
+                anchors.centerIn: parent
+                font.pointSize: 30
+                text: backend.data.curPres.toPrecision(5)
+            }
         }
+
+        Rectangle {
+            x: 97
+            y: 358
+            color: "transparent"
+            border.color: "yellow"
+            border.width: 2
+            width: 150
+            height: 55
+            radius: height/4
+
+            Text {
+                anchors.centerIn: parent
+                font.pointSize: 30
+                text: backend.data.curTemp.toPrecision(5)
+            }
+        }
+
+        Rectangle {
+            x: 513
+            y: 562
+            color: "transparent"
+            border.color: "yellow"
+            border.width: 2
+            width: 192
+            height: 56
+            radius: height/4
+
+            Text {
+                anchors.centerIn: parent
+                font.pointSize: 30
+                text: backend.data.curTemp.toPrecision(5) // to vac
+            }
+        }
+
     }
     
     // GridView {

@@ -6,7 +6,7 @@ import QtQuick.Controls.Material
 ApplicationWindow {
     id: window
     width: 1600
-    height: 750
+    height: 1000 //750
     // x: Screen.width / 2 - width / 2
     // y: Screen.height / 2 - height / 2
     visible: true
