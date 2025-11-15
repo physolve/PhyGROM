@@ -83,11 +83,48 @@ Page {
             }
 
             ComboBox {
+                id: cb
                 Layout.preferredHeight: 50
                 Layout.preferredWidth: 100
                 model: [1, 3, 5, 10, 30]
                 editable: true
+                inputMethodHints: Qt.ImhDigitsOnly | Qt.ImhFormattedNumbersOnly
+                validator: IntValidator {
+                    top: 3600
+                    bottom: 1
+                }
                 font.pixelSize: 20
+                delegate: ItemDelegate {
+                    width: parent.width
+                    contentItem: Text {
+                        text: modelData
+                        font.pointSize: 16
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                }
+                onAccepted: {
+                    let val = parseInt(editText)
+                    if (find(val) === -1) {
+                        // If not found, append a new item to the model with the entered text
+                        model.push(val)
+                        // Set the current index to the newly added item
+                        currentIndex = model.length - 1
+                    } else {
+                        // If found, set the current index to the existing item
+                        currentIndex = find(val);
+                    }   
+                }
+
+                RoundButton {
+                    x: parent.width + 5
+                    y: 10
+                    text: "k"
+                    width: 35
+                    height: 30
+                    onClicked: {
+                        cb.accepted()
+                    }
+                }
             }
 
             Button {
