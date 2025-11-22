@@ -115,12 +115,17 @@ Page {
                     }   
                 }
 
+                onCurrentIndexChanged: {
+                    logData.logTimerSeconds = model[currentIndex]
+                }
+
                 RoundButton {
                     x: parent.width + 5
                     y: 10
                     text: "k"
                     width: 35
                     height: 30
+                    visible: parseInt(cb.currentText) !== logData.logTimerSeconds
                     onClicked: {
                         cb.accepted()
                     }
@@ -141,7 +146,8 @@ Page {
                 text: "New"
 
                 onClicked: {
-                    layout.currentIndex = 1
+                    // opens file dialog
+                    
                 }
             }
 

@@ -57,6 +57,6 @@ private:
 
     QTimer* timer;
 
-    LogData logdata;
+    LogData logData;
 
 };

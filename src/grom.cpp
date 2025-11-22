@@ -41,6 +41,9 @@ void Grom::initGUI() {
         Qt::QueuedConnection
     );
     m_engine.rootContext()->setContextProperty("backend", this);
+    // log data object as singleton
+    m_engine.rootContext()->setContextProperty("logData", &logData);
+    
     m_engine.load(url);
 }
 
@@ -62,7 +65,7 @@ void Grom::readData() {
     m_lastData.m_curPres = presVals.getCurValue();
     m_lastData.m_curTemp = tempVals.getCurValue();
 
-    logdata.writeData(tempVals.getCurValue(), presVals.getCurValue());
+    logData.writeData(tempVals.getCurValue(), presVals.getCurValue());
 
     emit dataUpdated();
 }

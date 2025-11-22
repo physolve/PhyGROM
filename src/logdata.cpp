@@ -1,7 +1,7 @@
 #include "logdata.h"
 #include <QDir>
 #include <QFile>
-LogData::LogData(QObject* parent) : QObject(parent)
+LogData::LogData(QObject* parent) : QObject(parent), m_logTimer(new QTimer)
 {
     QDir dir("data");
     if (!dir.exists())
@@ -21,8 +21,8 @@ LogData::LogData(QObject* parent) : QObject(parent)
     }
     file.close();
 
-    // m_logTimer->setInterval(1000);
-    // connect(m_logTimer, &QTimer::timeout, this, &Log::programmLog);
+    m_logTimer->setInterval(1000);
+    connect(m_logTimer, &QTimer::timeout, this, &LogData::programmLog);
 
     m_programmTime.start();
 
@@ -31,7 +31,22 @@ LogData::LogData(QObject* parent) : QObject(parent)
 }
 
 LogData::~LogData(){
-    // if(m_logTimer->isActive()) m_logTimer->stop();
+    if(m_logTimer->isActive()) m_logTimer->stop();
+    delete m_logTimer;
+}
+
+void LogData::setLogTimerSeconds(int seconds) {
+    m_logTimer->setInterval(seconds*1000);
+    emit logTimerSecondsChanged();
+}
+
+int LogData::getLogTimerSeconds() {
+    return m_logTimer->interval()/1000;
+}
+
+void LogData::programmLog() {
+    // writeData
+    // separate log from path from ui
 }
 
 void LogData::writeData(double temp, double pres) {
